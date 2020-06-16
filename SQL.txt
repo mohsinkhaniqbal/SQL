@@ -1,0 +1,218 @@
+//SQL in Detail
+
+SQL = Structured Query Language
+
+DBMD = Data Base Management System 
+
+ORACLE = Oak Ridge Automatic Computer and Logic Engine
+
+
+// Queries
+
+// Creating a Table 
+
+1. CrEaTE TabLE TabLE_NAMe(vAlue1 INT, Value2 int, VALUE3 varchar(20));  // Case in-sensitive as it's just a body with column-names.
+
+
+
+// Inserting the values 
+
+2. InSert InTo TabLE_NAMe VaLues (20,100,'Mohsin'); // Here value 'Mohsin' is case sensitive and must be used as it is everywhere.
+
+		OR
+
+   InSert TabLE TabLE_NAMe(VALUE3 varchar(20), Value2 int, vAlue1 INT) VaLues('Mohsin',100,20); 
+	// This is helful in assigning the values randomly but in the desired position.
+
+
+
+// Projection (Deals with columns)
+
+3. Select * from TabLe_name; // Displays all the columns(Attributes) of the selected table.
+
+		OR
+
+   Select column1,column2 from Table_name; // Displays only the mentioned columns of the selected table.
+
+   Select column1,column2 from Table_name wHeRe Value2 > 50; // Displays all values which satisfs the condition.
+
+
+
+// Selection (Deals with rows)
+
+4. Select * from Table_name where value3 = 'Mohsin'; // Displays the row(Tuple) which satisfies the condition
+
+
+
+// Arithmetic Operation
+
+5. Select column1+10 , column2-10 from Table_name; // Displays the requested columns with by adding/subtracting 10.
+
+		OR
+
+   Select column1*2 , column2/2 from Table_name; // Displays after doubling-multipling / dividing it.
+
+
+
+// Column Aliases (when we do arithmetic operation or any opertaions we want to rename our column_name)
+
+6. Select column1*column1 AS SquarINg1 from Table_name; // we have renamed column1 to Squaring1 BUT ITS TEMPORARY.
+
+
+
+// Distinct Keyword (When we dont wanna repeat the same values of a paticular column)
+
+7. Select DISTINCT value3 from Table_NAMe; // If we have Mohsin value more than once, it shows it only once.
+
+
+
+// Concatenation (when we want to club values between columns or even add manually)
+
+8. Select value3 || ' scored ' || value1 || ' out of ' || value2 AS MeSSaGE from Table_name; // Mohsin scored 20 out of 100
+
+	// || This is called Pipe Operator,  ans we have used column alias also i.e MESSAGE to increase readability when we display.
+
+		OR
+
+  Select Concat(value1,value2) from Table_name; // Limited to only 2 values only inside the bracket not more than that.
+
+
+
+// Dual Table (Used to run a query randomly on a predefined table to check it)
+
+9. select 'Mohsin' || ' Scored 20 /' || ' 100 ' As Message from DUAL; // Mohsin Scored 20 / 100;
+
+		OR
+
+   select 30000*12 AS Annual_Salary from DUAL; // 360000 and the column name will be Annual_Salary.
+
+
+// Descrption of a table 
+
+10. Desc Table_name; // Gives the detail of column its size, we can see this by describe tab also without running this query.
+
+
+
+// Relational Operator
+
+11. select * from Table_name where value2 > 50; // Greater than condition.
+
+		OR
+
+    select * from Table_name where value2 < 50; // Lesser than condition.
+
+		OR
+
+    select * from Table_name where value2 >= 50; // Greater than and equal to similarly <=.
+
+		OR
+
+    select * from Table_name where value2 != 50; // Not equal , we can also use <> and ^= for not equal.
+
+
+
+// Between And Operator (To display the vlaues between the given condition) [we can also use NOT BETWEEN AND]
+
+12. Select * from Table_name where value2 between 20 to 80; // It includes both the values 20 and 80 also.
+
+
+
+// IN Operator (TO display the values that match inside the given bracket) [we can also use NOT IN]
+
+13. select *  from table_name where value2 in (10,20,30); // Displays only the values matching and it can have n number inside bracket.
+
+
+
+// Like Keyword (To Match and Disply) [we can also use NOT LIKE]
+
+14. select * from table_name where value3 like 'Mo%'; // % represents n number of char, so t just matches Mo and dosen't care rest.
+
+		OR
+
+    Select * from table_name where value3 like '_o%'; // _ represents the current char, here the second char is fixed i.e o.
+
+
+
+//  Null Operator (Displays Null Values) [we can also use NOT Null]
+
+15. select * from table_name where value3 is null; 
+
+
+
+// Logical Operator (AND OR NOT)
+
+16. select * from table_name where value2 > 20 and value3 not like 'Mo%';
+
+
+
+// Order by (Arranging the table)
+
+17. select * from table_name order by value1 asc; // Ascending value of value1, even if we dont write asc it does it.
+
+    select * from table_name order by value1 desc; // Descending value of value1.
+
+
+
+// Functions
+
+// Lower case
+
+18. Select lower(value3) from table_Name; // mohsin, irrespective of the value present in the table
+
+
+
+// Upper case
+
+19. select upper(value3) from table_name; // MOHSIN
+
+
+
+// Initial letter Capital
+
+20. select initcap(value3) from table_name; // Mohsin
+
+
+
+// Conact (Refer point 8)
+
+
+
+// Length (Number of char)
+
+21. select length('Mohsin') from dual; // 6
+
+
+
+// Substring
+
+22. select substr('Mohsin', 2) from dual; // hsin, displays the char after 2 places.
+
+		OR
+
+    Select substr('Mohsin',2,4) from dual; // hs, displays char from 2-4 places.
+
+
+
+// Instring
+
+23. select instr('Mohsin',s) from dual; // 4, displays the char place.
+
+
+
+// Trimming (It can only trim the first and the last char not others)
+
+24. select trim(leading 'M' from 'Mohsin') from dual; // ohsin, trims out M.
+
+    select trim(trailing 'n' from 'Mohsin') from dual; // Mohsi, trims out n.
+
+
+
+// Padding (Left and Right)
+
+25. select lpad('Mohsin', 10 , '@') from dual; // @@@@Mohsin, here we get 4 @ as the size we have mentioned is total 10 char.
+
+    select rpad('Mohsin', 10 , '#') from dual; // Mohsin####,
+
+
+
+// 
