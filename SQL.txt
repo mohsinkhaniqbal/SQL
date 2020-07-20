@@ -427,7 +427,7 @@ TCL = Transaction Control Language (Commit , Rollback, Savepoint) (Deals with th
 
 
 
-// Update (We ca update the values inside a table)
+// Update (We can update the values inside a table)
 
 51. Update table_name set column1 = 100 where column3 = 'abc'; // the value of column1 is replaced/updated as 100 when column3 is abc.
 
