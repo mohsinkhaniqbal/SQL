@@ -4,14 +4,22 @@ SQL = Structured Query Language
 
 DBMD = Data Base Management System 
 
-ORACLE = Oak Ridge Automatic Computer and Logic Engine
+ORACLE = Oak Ridge Automatic Computer and Logical Engine
+
+DDL = Data Defination Language	(Create, Drop, Alter , Truncate) (Deals with the table terminologies)
+
+DML = Data Manipulation Language (Insert, Update, Delete) (Deals with the data inside the table)
+
+DCL = Data Control Language (Grant, Revoke) (Deals with the Database user handling)
+
+TCL = Transaction Control Language (Commit , Rollback, Savepoint) (Deals with the memory i.e saving/retriving used with DML)
 
 
 // Queries
 
 // Creating a Table 
 
-1. CrEaTE TabLE TabLE_NAMe(vAlue1 INT, Value2 int, VALUE3 varchar(20));  // Case in-sensitive as it's just a body with column-names.
+1. CrEaTE TabLE TabLE_NAMe(CoLumN1 INT, CoLumN2 int, CoLumN3 varchar(20));  // Case in-sensitive as it's just a body with column-names.
 
 
 
@@ -21,7 +29,7 @@ ORACLE = Oak Ridge Automatic Computer and Logic Engine
 
 		OR
 
-   InSert TabLE TabLE_NAMe(VALUE3 varchar(20), Value2 int, vAlue1 INT) VaLues('Mohsin',100,20); 
+   InSert TabLE TabLE_NAMe(CoLumN3 varchar(20), CoLumN2 int, CoLumN1 INT) VaLues('Mohsin',100,20); 
 	// This is helful in assigning the values randomly but in the desired position.
 
 
@@ -34,13 +42,13 @@ ORACLE = Oak Ridge Automatic Computer and Logic Engine
 
    Select column1,column2 from Table_name; // Displays only the mentioned columns of the selected table.
 
-   Select column1,column2 from Table_name wHeRe Value2 > 50; // Displays all values which satisfs the condition.
+   Select column1,column2 from Table_name wHeRe CoLumN2 > 50; // Displays all values which satisfs the condition.
 
 
 
 // Selection (Deals with rows)
 
-4. Select * from Table_name where value3 = 'Mohsin'; // Displays the row(Tuple) which satisfies the condition
+4. Select * from Table_name where CoLumN3 = 'Mohsin'; // Displays the row(Tuple) which satisfies the condition
 
 
 
@@ -62,19 +70,19 @@ ORACLE = Oak Ridge Automatic Computer and Logic Engine
 
 // Distinct Keyword (When we dont wanna repeat the same values of a paticular column)
 
-7. Select DISTINCT value3 from Table_NAMe; // If we have Mohsin value more than once, it shows it only once.
+7. Select DISTINCT CoLumN3 from Table_NAMe; // If we have Mohsin value more than once, it shows it only once.
 
 
 
 // Concatenation (when we want to club values between columns or even add manually)
 
-8. Select value3 || ' scored ' || value1 || ' out of ' || value2 AS MeSSaGE from Table_name; // Mohsin scored 20 out of 100
+8. Select CoLumN3 || ' scored ' || CoLumN1 || ' out of ' || CoLumN2 AS MeSSaGE from Table_name; // Mohsin scored 20 out of 100
 
 	// || This is called Pipe Operator,  ans we have used column alias also i.e MESSAGE to increase readability when we display.
 
 		OR
 
-  Select Concat(value1,value2) from Table_name; // Limited to only 2 values only inside the bracket not more than that.
+  Select Concat(CoLumN1,CoLumN2) from Table_name; // Limited to only 2 values only inside the bracket not more than that.
 
 
 
@@ -95,61 +103,61 @@ ORACLE = Oak Ridge Automatic Computer and Logic Engine
 
 // Relational Operator
 
-11. select * from Table_name where value2 > 50; // Greater than condition.
+11. select * from Table_name where CoLumN2 > 50; // Greater than condition.
 
 		OR
 
-    select * from Table_name where value2 < 50; // Lesser than condition.
+    select * from Table_name where CoLumN2 < 50; // Lesser than condition.
 
 		OR
 
-    select * from Table_name where value2 >= 50; // Greater than and equal to similarly <=.
+    select * from Table_name where CoLumN2 >= 50; // Greater than and equal to similarly <=.
 
 		OR
 
-    select * from Table_name where value2 != 50; // Not equal , we can also use <> and ^= for not equal.
+    select * from Table_name where CoLumN2 != 50; // Not equal , we can also use <> and ^= for not equal.
 
 
 
 // Between And Operator (To display the vlaues between the given condition) [we can also use NOT BETWEEN AND]
 
-12. Select * from Table_name where value2 between 20 to 80; // It includes both the values 20 and 80 also.
+12. Select * from Table_name where CoLumN2 between 20 to 80; // It includes both the values 20 and 80 also.
 
 
 
 // IN Operator (TO display the values that match inside the given bracket) [we can also use NOT IN]
 
-13. select *  from table_name where value2 in (10,20,30); // Displays only the values matching and it can have n number inside bracket.
+13. select *  from table_name where CoLumN2 in (10,20,30); // Displays only the values matching and it can have n number inside bracket.
 
 
 
 // Like Keyword (To Match and Disply) [we can also use NOT LIKE]
 
-14. select * from table_name where value3 like 'Mo%'; // % represents n number of char, so t just matches Mo and dosen't care rest.
+14. select * from table_name where CoLumN3 like 'Mo%'; // % represents n number of char, so t just matches Mo and dosen't care rest.
 
 		OR
 
-    Select * from table_name where value3 like '_o%'; // _ represents the current char, here the second char is fixed i.e o.
+    Select * from table_name where CoLumN3 like '_o%'; // _ represents the current char, here the second char is fixed i.e o.
 
 
 
 //  Null Operator (Displays Null Values) [we can also use NOT Null]
 
-15. select * from table_name where value3 is null; 
+15. select * from table_name where CoLumN3 is null; 
 
 
 
 // Logical Operator (AND OR NOT)
 
-16. select * from table_name where value2 > 20 and value3 not like 'Mo%';
+16. select * from table_name where CoLumN2 > 20 and CoLumN3 not like 'Mo%';
 
 
 
 // Order by (Arranging the table)
 
-17. select * from table_name order by value1 asc; // Ascending value of value1, even if we dont write asc it does it.
+17. select * from table_name order by CoLumN1 asc; // Ascending value of CoLumN1, even if we dont write asc it does it.
 
-    select * from table_name order by value1 desc; // Descending value of value1.
+    select * from table_name order by CoLumN1 desc; // Descending value of CoLumN1.
 
 
 
@@ -157,19 +165,19 @@ ORACLE = Oak Ridge Automatic Computer and Logic Engine
 
 // Lower case
 
-18. Select lower(value3) from table_Name; // mohsin, irrespective of the value present in the table
+18. Select lower(CoLumN3) from table_Name; // mohsin, irrespective of the value present in the table
 
 
 
 // Upper case
 
-19. select upper(value3) from table_name; // MOHSIN
+19. select upper(CoLumN3) from table_name; // MOHSIN
 
 
 
 // Initial letter Capital
 
-20. select initcap(value3) from table_name; // Mohsin
+20. select initcap(CoLumN3) from table_name; // Mohsin
 
 
 
@@ -215,4 +223,258 @@ ORACLE = Oak Ridge Automatic Computer and Logic Engine
 
 
 
-// 
+// Round (Used to round of a number)
+
+26. select round(25.2658,3) from dual; // we get 25.266, the number is rounded of for 3 digits as desired.
+
+
+
+// Truncate (Used to trim the given number)
+
+27. select trunc(25.2658,3) from dual; // we get 25.265, the number is trimmed to 3 decimal points.
+
+
+
+// Modulus (Getting the Reminder)
+
+28. select mod(20,2) from dual; // we get 0, as their won't be any reminder. if mod(21,2) = 1.
+
+
+
+// Null Value Logic (Finding null and replacing it)
+
+29. select nvl(CoLumN1,0) from table_name; // checks CoLumN1 column and replaces null with 0.
+
+
+
+// Null Value Logic 2 (Finding null and replacing it and replacing the rest with a given value)
+
+30. select nvl2(CoLumN1,20,1) from table_name; // checks CoLumN1 column replaces null with 1 and the rest with 20. So CoLumN1 is full of 1's and 20's.
+
+
+
+// Month_Between (As the name say gives the difference in months)
+
+31. select month_between('20-jul-2020','10-feb-2020') from dual; // we get 5, as it only considers months not days.
+
+
+
+// Add_month (Adding the months)
+
+32. select add_month('20-jul-2020',7) from daul; // we get 20-feb-2021, as 7 months are added.
+
+
+
+// Next_day (It gives the next day of the week which we mention)
+
+33. select next_day('20-jul-2020', 'Monday') from daul; // we get  27-jul-2020.
+
+
+
+// Nullif (Check the input and compares)
+
+34. select nullif(100,100) from dual; // we get null as both the values are same.
+
+		OR
+
+    select nullif(100,200) from dual; // we get 100, when the values are different we get the first digit.
+
+
+
+// Count (Used to measure the total number of rows)
+
+35. select count(CoLumN1) from table_name; // it counts the total number of data present in the CoLumN1 column.
+
+
+
+// Sum (Used to add the each values)
+
+36. select sum(CoLumN1) from table_name; // gives the total of all values present in CoLumN1 attribute.
+
+
+
+// Avergae (Gives the avergae value)
+
+37. select avg(CoLumN1) from table_name; // gives the average of all values present in CoLumN1.
+
+
+
+// Maximum (max value present in any attribute)
+
+38. select max(CoLumN1) from table_name; // gives the max value.
+
+
+
+// Minimum (min value present in any attribute)
+
+39. select min(CoLumN1) from table_name; // gives the min value.
+
+
+
+// Group by (we might have same values so we can group them)
+
+40. select gender, max(age) from table_name group by gender;	// we get male/female with highest age only, group by clause is usually used along with count,sum,max,min.
+
+
+
+// Having (when we have many conditions and to avoid subqueries)
+
+41. select age, max(marks) from table_name where marks >35 group by age having max(marks)>80 order by age; // we want only the age group above 80 marks
+
+		// the syntax can be as // select --- where --- group by --- having --- order by.  
+
+
+
+// Sub-Query (In order to reuse or simply, but the rutime increases)
+
+42. select * from table_name where CoLumN1=(select CoLumN1 from table_name where CoLumN3 = 'abc'); 
+
+	// as we know CoLumN1 is int and CoLumN3 is varchar, so here CoLumN1 = the subquery CoLumN1 of CoLumN3(abc), and the main query display all data which is equal to CoLumN1. 
+
+
+
+// Joins (When we have many tables with a common attribute we use joins to merge or join them)
+
+
+// Inner join / join (The most used , it is used to display only the matched rows)
+
+43. select * from table1 join table2 on table1.CoLumN1 = table2.CoLumN2; // so here we are joining the the tables only when the CoLumN1 is same of CoLumN2.
+
+			OR
+
+    select * from table1 inner join table2 on table1.CoLumN1 = table2.CoLumN2;
+
+			OR
+
+    select * from table1,table2 where table1.CoLumN1 = table2.CoLumN2;
+
+
+
+// Left join (When we want all the values from the first table and only the matched ones from the second)
+
+44. select * from table1 left join table2 on table1.CoLumN1 = table2.CoLumN2; // first we get the matched rows then the remaining rows from table1.
+
+			OR
+
+    select * from table1 left outer join table2 on table1.CoLumN1 = table2.CoLumN2; // both are same.
+
+
+
+// Right join (When ww want all the values from the second table and only the matched ones from the first)
+
+45. select * from table1 right join table2 on table1.column1 = table2.column2; // first we get the matched rows then the remaining rows from table2.
+
+			OR
+
+    select * from table1 right outer join table2 on table1.column1 = table2.column2;
+
+
+
+// Full join (All the data from both the tables)
+
+46. select * from table1 full join table2 on table1.column1 = table2.column2; // first the matched then rest all.
+
+			OR
+
+    select * from table1 full outer join table2 on table1.column1 = table2.colum2;
+
+
+// All the above joins we had give the matching attritube column on our own.
+
+
+
+// Natral join (The matching attribute is automatically generated)
+
+47. select * from table1 natural join table2; // here the matched attribute column will be only once i.e table1.value1 will be there but not table2.value2 as both are same.
+
+	// Natural join can be inner join, left, right and full join, by defualt its inner join.
+
+    select * from table1 natural left join table2; // it's left join but automatic matching attribute.
+
+    select * from table1 natural right join table2; // it's right join but automatic matching attribute.
+
+    select * from table1 natural full join table2; // it's full join but automatic matching attribute.
+
+
+
+// Drop (Used to delete the complete data from the database)
+
+48. Drop table table_name; // deletes the complete table, we can also use drop along with others to drop of particular attributes.
+
+
+
+// Truncate (Used to delte the date inside a table but not the table)
+
+49. Truncate table table_name; // the table exists with its attributes i.e column1... but the data is deleted.
+
+
+
+// Alter (Used to add, modify or rename the attributes)
+
+50. Alter table table_name add(column4 number); // added a new column.
+
+		OR
+    
+    Alter table table_name modify(column3 varchar(30)); // modified the size of varchar.
+
+		OR
+
+    Alter table table_name rename column3 to column5; // renaming the attribute example id to roll number.
+
+		OR
+
+    Alter table table_name rename to table_new; // used to rename the table also.
+
+
+
+// Update (We ca update the values inside a table)
+
+51. Update table_name set column1 = 100 where column3 = 'abc'; // the value of column1 is replaced/updated as 100 when column3 is abc.
+
+
+
+// Delete (Deleting particular rows)
+
+52. Delete from table_name where column3 = 'abc'; // the row when column3 is abc is deleted.
+ 
+
+
+// Commit (Used to save)
+
+53. Commit; // if there is no auto save we use commit to save, or when we want to roll back we use it by turning off the auto commit.
+
+
+
+// Rollback (Gets back to the Previous point)
+
+54. Rollback; // undoes the change and goes back to the previous.
+
+
+
+// Savepoint (Created when we want to go back to same point)
+
+55. Savepoint S;
+
+    Rollback to savepoint S;	// Even after doing many changes we can go back to the savepoint.
+
+
+
+// Grant (Grants the Privilage / Permission / Authority to  a new user)
+ 
+56. Create user new identified by admin;
+
+    Grant all privilages to new;		// Here new is a user for the database, we can give all privilage or particular privilage.
+
+		OR
+
+    Grant select,create ON table_name To new; 		// We can give the privilage only for particular table also.
+
+
+
+// Revoke (Removes the Privilage / Permission / Authority to  a new user)
+ 
+57. Revoke all privilages to new;		// Here new is a user for the database, we can remove all privilage or particular privilage.
+
+		OR
+
+    Revoke select,create ON table_name To new; 		// We can give the privilage only for particular table also.
